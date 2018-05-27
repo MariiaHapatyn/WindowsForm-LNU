@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsApplication {
-    static class Program {
+     static class Program {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

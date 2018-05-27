@@ -5,15 +5,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Xml.Serialization;
 
 namespace WindowsFormsApplication {
     [Serializable]
     public class Quad : ISharpe {
-        public Color FigureColor { get; set; }
+       
         public Point UppLeft { get; set; }
         public int Height { get; set; }
         public int Width { get; set; }
         public string  Name { get; }
+
+        [XmlIgnore]
+        public Color FigureColor { get; set; }
+
+        [XmlElement( "FigureColor" )]
+        public int ColorArgb {
+            get { return FigureColor.ToArgb(); }
+            set { FigureColor = Color.FromArgb( value ); }
+        }
 
         public Quad () {
             Name = DateTime.Now.Ticks.ToString();
